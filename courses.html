@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses | Fluentio Academia</title>
+    <meta name="description" content="Best spoken English course online in Pakistan. Speak English fluently and confidently in 30–60 days. Group & 1-on-1 coaching for students, job seekers, and freelancers.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ───── HERO SECTION ───── */
+        .courses-hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
+            padding: 140px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .courses-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(79,70,229,0.35) 0%, transparent 55%),
+                radial-gradient(ellipse at 80% 20%, rgba(236,72,153,0.25) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(245,158,11,0.15);
+            border: 1px solid rgba(245,158,11,0.4);
+            color: #fbbf24;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 6px 18px;
+            border-radius: 50px;
+            margin-bottom: 22px;
+        }
+
+        .courses-hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            color: white;
+            max-width: 780px;
+            margin: 0 auto 20px;
+            line-height: 1.15;
+        }
+
+        .courses-hero h1 span {
+            background: linear-gradient(to right, #818cf8, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .courses-hero p.subhead {
+            color: rgba(255,255,255,0.65);
+            font-size: 1.15rem;
+            max-width: 560px;
+            margin: 0 auto 36px;
+        }
+
+        .urgency-bar {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(16,185,129,0.12);
+            border: 1px solid rgba(16,185,129,0.3);
+            color: #6ee7b7;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 50px;
+            margin-top: 16px;
+        }
+
+        .urgency-bar .dot {
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px rgba(16,185,129,0.3);
+            animation: pulse-dot 1.8s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { box-shadow: 0 0 0 3px rgba(16,185,129,0.3); }
+            50% { box-shadow: 0 0 0 6px rgba(16,185,129,0.1); }
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+        /* ───── TRANSFORMATION STRIP ───── */
+        .transformation-strip {
+            background: white;
+            padding: 40px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .transform-items {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px 40px;
+        }
+
+        .transform-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 0.9rem;
+        }
+
+        .transform-item .check {
+            width: 24px;
+            height: 24px;
+            background: rgba(16,185,129,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--green);
+            font-size: 0.75rem;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        /* ───── WHO IS THIS FOR ───── */
+        .audience-section {
+            padding: 90px 0 60px;
+            background: #f8fafc;
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .audience-chip {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 22px 18px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .audience-chip:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(79,70,229,0.1);
+        }
+
+        .audience-chip .emoji {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .audience-chip h4 {
+            font-size: 0.95rem;
+            color: var(--dark);
+            margin-bottom: 4px;
+        }
+
+        .audience-chip p {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        /* ───── PRICING SECTION ───── */
+        .pricing-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .pricing-label {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .pricing-label .eyebrow {
+            display: inline-block;
+            background: rgba(79,70,229,0.08);
+            color: var(--primary);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 6px 18px;
+            border-radius: 50px;
+            margin-bottom: 16px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 24px;
+            padding: 44px 36px;
+            position: relative;
+            border: 2px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            transition: 0.3s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary);
+            box-shadow: 0 20px 60px rgba(79,70,229,0.15);
+        }
+
+        .pricing-card.premium {
+            background: linear-gradient(145deg, #0f172a, #1e1b4b);
+            border-color: transparent;
+            box-shadow: 0 20px 60px rgba(15,23,42,0.3);
+        }
+
+        .pricing-card.premium * { color: white; }
+        .pricing-card.premium .plan-name { color: #a5b4fc; }
+        .pricing-card.premium .plan-price { color: white; }
+        .pricing-card.premium .plan-sub { color: rgba(255,255,255,0.55); }
+        .pricing-card.premium .feature-item { color: rgba(255,255,255,0.85); }
+        .pricing-card.premium .feature-item::before { color: #6ee7b7; }
+        .pricing-card.premium .divider { border-color: rgba(255,255,255,0.1); }
+        .pricing-card.premium .outcome-box {
+            background: rgba(255,255,255,0.07);
+            border-color: rgba(255,255,255,0.15);
+        }
+        .pricing-card.premium .outcome-box p { color: rgba(255,255,255,0.7); }
+        .pricing-card.premium .outcome-box strong { color: #a5b4fc; }
+
+        .plan-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .badge-popular {
+            background: var(--green);
+            color: white;
+        }
+
+        .badge-premium {
+            background: linear-gradient(to right, #818cf8, #ec4899);
+            color: white;
+        }
+
+        .plan-name {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+        }
+
+        .plan-headline {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+            line-height: 1.2;
+        }
+
+        .plan-sub {
+            font-size: 0.88rem;
+            color: var(--gray);
+            margin-bottom: 24px;
+        }
+
+        .plan-price {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--dark);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .plan-price sup {
+            font-size: 1.2rem;
+            vertical-align: super;
+            font-weight: 600;
+        }
+
+        .plan-price-note {
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-bottom: 28px;
+        }
+
+        .pricing-card.premium .plan-price-note { color: rgba(255,255,255,0.4); }
+
+        .divider {
+            border: 0;
+            border-top: 1px solid #f1f5f9;
+            margin: 24px 0;
+        }
+
+        .features-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--gray);
+            margin-bottom: 16px;
+        }
+
+        .pricing-card.premium .features-label { color: rgba(255,255,255,0.4); }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 24px;
+            flex: 1;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.92rem;
+            color: var(--dark);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .feature-item::before {
+            content: '✓';
+            color: var(--green);
+            font-weight: 800;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .feature-item.highlighted::before {
+            content: '⭐';
+        }
+
+        .outcome-box {
+            background: rgba(79,70,229,0.05);
+            border: 1px solid rgba(79,70,229,0.15);
+            border-radius: 14px;
+            padding: 18px;
+            margin-bottom: 24px;
+        }
+
+        .outcome-box strong {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .outcome-box p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            line-height: 1.5;
+            font-style: italic;
+        }
+
+        .btn-enroll-primary {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 16px;
+            background: var(--green);
+            color: white !important;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(16,185,129,0.3);
+        }
+
+        .btn-enroll-primary:hover {
+            background: #059669;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(16,185,129,0.5);
+        }
+
+        .btn-enroll-premium {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 16px;
+            background: linear-gradient(to right, #6366f1, #ec4899);
+            color: white !important;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: 0.3s;
+            box-shadow: 0 4px 20px rgba(99,102,241,0.4);
+        }
+
+        .btn-enroll-premium:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(99,102,241,0.6);
+        }
+
+        .enroll-note {
+            text-align: center;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+
+        .pricing-card.premium .enroll-note { color: rgba(255,255,255,0.35); }
+        .pricing-card:not(.premium) .enroll-note { color: var(--gray); }
+
+        /* ───── COMPARISON TABLE ───── */
+        .comparison-section {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+
+        .compare-table {
+            width: 100%;
+            max-width: 780px;
+            margin: 40px auto 0;
+            border-collapse: collapse;
+        }
+
+        .compare-table th {
+            font-family: var(--font-head);
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 14px 20px;
+            text-align: center;
+        }
+
+        .compare-table th:first-child { text-align: left; }
+
+        .compare-table td {
+            padding: 14px 20px;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+            color: var(--dark);
+            text-align: center;
+        }
+
+        .compare-table td:first-child {
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .compare-table .col-standard {
+            background: rgba(79,70,229,0.04);
+        }
+
+        .compare-table .col-premium {
+            background: rgba(79,70,229,0.08);
+        }
+
+        .compare-table .check-yes { color: var(--green); font-size: 1.1rem; font-weight: 800; }
+        .compare-table .check-no { color: #cbd5e1; font-size: 1.1rem; }
+
+        .col-header-premium {
+            background: var(--primary);
+            color: white;
+            border-radius: 8px 8px 0 0;
+            padding: 10px 20px !important;
+        }
+
+        /* ───── TESTIMONIALS ───── */
+        .testimonials-section {
+            padding: 90px 0;
+            background: white;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 18px;
+            padding: 28px;
+            position: relative;
+        }
+
+        .testimonial-card .quote-mark {
+            font-size: 3rem;
+            color: rgba(79,70,229,0.15);
+            font-family: Georgia, serif;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .testimonial-card p {
+            font-size: 0.92rem;
+            color: var(--gray);
+            line-height: 1.65;
+            margin-bottom: 18px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .author-info strong {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--dark);
+        }
+
+        .author-info span {
+            font-size: 0.78rem;
+            color: var(--gray);
+        }
+
+        .stars {
+            color: #fbbf24;
+            font-size: 0.8rem;
+            margin-bottom: 2px;
+        }
+
+        /* ───── FAQ ───── */
+        .faq-section {
+            padding: 90px 0;
+            background: #f8fafc;
+        }
+
+        .faq-list {
+            max-width: 700px;
+            margin: 40px auto 0;
+        }
+
+        .faq-item {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .faq-q {
+            padding: 20px 24px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        .faq-q:hover { color: var(--primary); }
+
+        .faq-q .arrow {
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+            color: var(--gray);
+            flex-shrink: 0;
+        }
+
+        .faq-a {
+            display: none;
+            padding: 0 24px 20px;
+            font-size: 0.9rem;
+            color: var(--gray);
+            line-height: 1.65;
+        }
+
+        .faq-item.open .faq-q { color: var(--primary); }
+        .faq-item.open .arrow { transform: rotate(45deg); color: var(--primary); }
+        .faq-item.open .faq-a { display: block; }
+
+        /* ───── FINAL CTA ───── */
+        .final-cta {
+            background: linear-gradient(135deg, #0f172a, #312e81);
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(99,102,241,0.3) 0%, transparent 70%);
+        }
+
+        .final-cta h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: white;
+            max-width: 700px;
+            margin: 0 auto 16px;
+            position: relative;
+        }
+
+        .final-cta p {
+            color: rgba(255,255,255,0.6);
+            font-size: 1.1rem;
+            max-width: 480px;
+            margin: 0 auto 36px;
+            position: relative;
+        }
+
+        .final-cta .cta-group {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        /* ───── RESPONSIVENESS ───── */
+        @media (max-width: 700px) {
+            .compare-table { font-size: 0.82rem; }
+            .compare-table th, .compare-table td { padding: 10px 12px; }
+            .pricing-card { padding: 36px 24px; }
+            .plan-price { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER (unchanged) -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="assets/logo.png" alt="Fluentio">
+                    Fluentio<span>Academia</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="courses.html" class="active">Courses</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="contact.html" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.9rem;">Start Learning</a></li>
+                </ul>
+                <div class="hamburger"><span></span><span></span><span></span></div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ══════════════════════════════════
+         HERO SECTION
+    ══════════════════════════════════ -->
+    <section class="courses-hero">
+        <div class="container">
+            <div class="hero-badge reveal">🇵🇰 Pakistan's Most Trusted Online English Academy</div>
+            <h1 class="reveal">
+                Speak English Fluently &<br>
+                <span>Confidently in 30–60 Days</span>
+            </h1>
+            <p class="subhead reveal">
+                Stop translating in your head. Start thinking and speaking in English naturally — for interviews, work, and real life.
+            </p>
+            <div class="hero-cta-group reveal">
+                <a href="contact.html" class="btn btn-primary" style="font-size: 1rem; padding: 16px 36px;">
+                    Enroll Now — Limited Seats Available
+                </a>
+                <a href="#pricing" class="btn btn-secondary" style="font-size: 1rem; padding: 16px 36px;">
+                    See Pricing
+                </a>
+            </div>
+            <div class="reveal">
+                <div class="urgency-bar">
+                    <span class="dot"></span>
+                    Next batch starting soon — Only a few spots left
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════
+         TRUST STRIP
+    ══════════════════════════════════ -->
+    <div class="transformation-strip">
+        <div class="container">
+            <div class="transform-items">
+                <div class="transform-item"><span class="check">✓</span> Live Speaking Practice</div>
+                <div class="transform-item"><span class="check">✓</span> Interview-Ready English</div>
+                <div class="transform-item"><span class="check">✓</span> No Heavy Grammar Theory</div>
+                <div class="transform-item"><span class="check">✓</span> Certified Instructors</div>
+                <div class="transform-item"><span class="check">✓</span> Real Results in 30 Days</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════
+         WHO IS THIS FOR
+    ══════════════════════════════════ -->
+    <section class="audience-section section-padding" style="padding: 90px 0 60px;">
+        <div class="container">
+            <div class="text-center reveal">
+                <h2>This Course is For <span style="color: var(--primary);">You</span> If…</h2>
+                <p style="color: var(--gray); max-width: 500px; margin: 12px auto 0;">Whether you're a student, job seeker, or freelancer — we turn your fear of speaking into your biggest strength.</p>
+            </div>
+            <div class="audience-grid">
+                <div class="audience-chip reveal">
+                    <span class="emoji">🎓</span>
+                    <h4>Students</h4>
+                    <p>Ace presentations & college interviews</p>
+                </div>
+                <div class="audience-chip reveal">
+                    <span class="emoji">💼</span>
+                    <h4>Job Seekers</h4>
+                    <p>Speak confidently in every interview</p>
+                </div>
+                <div class="audience-chip reveal">
+                    <span class="emoji">💻</span>
+                    <h4>Freelancers</h4>
+                    <p>Win international clients with fluent English</p>
+                </div>
+                <div class="audience-chip reveal">
+                    <span class="emoji">✈️</span>
+                    <h4>Visa Aspirants</h4>
+                    <p>Prepare for IELTS speaking & abroad life</p>
+                </div>
+                <div class="audience-chip reveal">
+                    <span class="emoji">😰</span>
+                    <h4>Beginners</h4>
+                    <p>Zero confidence? We start from scratch</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════
+         PRICING SECTION
+    ══════════════════════════════════ -->
+    <section class="pricing-section" id="pricing">
+        <div class="container">
+            <div class="pricing-label reveal">
+                <div class="eyebrow">Transparent Pricing</div>
+                <h2>Invest in Your Voice.<br>Choose Your Plan.</h2>
+                <p style="color: var(--gray); margin-top: 12px; max-width: 500px; margin-left: auto; margin-right: auto;">No hidden fees. No long-term contracts. Just real, measurable transformation.</p>
+            </div>
+
+            <div class="pricing-grid">
+
+                <!-- STANDARD PLAN -->
+                <div class="card pricing-card featured reveal">
+                    <div class="plan-badge badge-popular">⭐ Most Popular</div>
+
+                    <div class="plan-name">Standard Plan</div>
+                    <div class="plan-headline">Speak English<br>Without Fear</div>
+                    <div class="plan-sub">Perfect for beginners & students</div>
+
+                    <div class="plan-price"><sup>PKR</sup> 11,999</div>
+                    <div class="plan-price-note">One-time payment · Full course access</div>
+
+                    <hr class="divider">
+
+                    <div class="features-label">What you get</div>
+                    <ul class="feature-list">
+                        <li class="feature-item">Live group speaking classes (online)</li>
+                        <li class="feature-item">Daily speaking practice tasks & challenges</li>
+                        <li class="feature-item">Real-life conversation practice (daily situations)</li>
+                        <li class="feature-item">Confidence building exercises</li>
+                        <li class="feature-item">Basic writing (WhatsApp, email English)</li>
+                        <li class="feature-item">No boring grammar theory — 100% practical</li>
+                        <li class="feature-item">Completion certificate</li>
+                    </ul>
+
+                    <div class="outcome-box">
+                        <strong>🎯 Your Outcome</strong>
+                        <p>"I can speak English without fear or hesitation in 30–45 days."</p>
+                    </div>
+
+                    <a href="contact.html" class="btn-enroll-primary">Enroll Now</a>
+                    <div class="enroll-note">Next batch starting soon</div>
+                </div>
+
+                <!-- PREMIUM PLAN -->
+                <div class="card pricing-card premium reveal">
+                    <div class="plan-badge badge-premium">💎 Best Value</div>
+
+                    <div class="plan-name">Premium Plan</div>
+                    <div class="plan-headline">Become Fluent,<br>Interview-Ready</div>
+                    <div class="plan-sub">For serious students & job seekers</div>
+
+                    <div class="plan-price"><sup>PKR</sup> 17,999</div>
+                    <div class="plan-price-note">One-time payment · Everything included</div>
+
+                    <hr class="divider">
+
+                    <div class="features-label">Everything in Standard, PLUS</div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlighted">Small group OR 1-on-1 speaking sessions</li>
+                        <li class="feature-item highlighted">Personal feedback on your speaking mistakes</li>
+                        <li class="feature-item highlighted">Advanced speaking & debate sessions</li>
+                        <li class="feature-item highlighted">Interview preparation (English for jobs)</li>
+                        <li class="feature-item highlighted">Confidence & personality development</li>
+                        <li class="feature-item">Weekly progress tracking & reports</li>
+                        <li class="feature-item">Priority WhatsApp support</li>
+                        <li class="feature-item">IELTS speaking exam preparation</li>
+                        <li class="feature-item">Premium completion certificate</li>
+                    </ul>
+
+                    <div class="outcome-box">
+                        <strong>🎯 Your Outcome</strong>
+                        <p>"I am fluent, confident, and interview-ready in English."</p>
+                    </div>
+
+                    <a href="contact.html" class="btn-enroll-premium">Enroll in Premium</a>
+                    <div class="enroll-note">Limited seats · High-demand batch</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</div> </div> </section> 
+
+    <section class="pricing-section" id="german-courses" style="background: #f0f4f8; border-top: 1px solid #e2e8f0; padding-top: 100px;">
+        <div class="container">
+            <div class="pricing-label reveal">
+                <div class="eyebrow" style="background: rgba(245,158,11,0.1); color: var(--accent);">Deutsch Lernen</div>
+                <h2>German Language Mastery</h2>
+                <p style="color: var(--gray); margin-top: 12px; max-width: 500px; margin-left: auto; margin-right: auto;">
+                    Master the German language with structured A1 & A2 levels designed for students and visa applicants.
+                </p>
+            </div>
+
+            <div class="pricing-grid" style="margin-top: 80px;">
+
+                <div class="card pricing-card featured reveal">
+                    <div class="plan-badge badge-popular" style="background: var(--accent);">Beginner Level</div>
+
+                    <div class="plan-name">Level A1</div>
+                    <div class="plan-headline">German for<br>Beginners</div>
+                    <div class="plan-sub">Start your journey from zero</div>
+
+                    <div class="plan-price"><sup>PKR</sup> 15,000</div>
+                    <div class="plan-price-note">One-time payment · 8-Week Intensive</div>
+
+                    <hr class="divider">
+
+                    <div class="features-label">What you'll learn</div>
+                    <ul class="feature-list">
+                        <li class="feature-item">Basic German grammar & sentence structure</li>
+                        <li class="feature-item">Daily life vocabulary (Greetings, Shopping)</li>
+                        <li class="feature-item">Live pronunciation coaching</li>
+                        <li class="feature-item">Listening & Speaking drills</li>
+                        <li class="feature-item">Preparation for Goethe A1 Start Deutsch 1</li>
+                    </ul>
+
+                    <div class="outcome-box">
+                        <strong>🎯 Your Outcome</strong>
+                        <p>"I can introduce myself and handle simple daily interactions in German."</p>
+                    </div>
+
+                    <a href="contact.html" class="btn-enroll-primary">Enroll in A1</a>
+                </div>
+
+                <div class="card pricing-card premium reveal">
+                    <div class="plan-badge badge-premium">Advanced Elementary</div>
+
+                    <div class="plan-name">Level A2</div>
+                    <div class="plan-headline">Elementary<br>German Proficiency</div>
+                    <div class="plan-sub">For those who know the basics</div>
+
+                    <div class="plan-price"><sup>PKR</sup> 20,000</div>
+                    <div class="plan-price-note">One-time payment · 10-Week Intensive</div>
+
+                    <hr class="divider">
+
+                    <div class="features-label">Advanced Learning</div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlighted">Past tense & Complex grammar</li>
+                        <li class="feature-item highlighted">Professional communication basics</li>
+                        <li class="feature-item highlighted">Interactive group discussions</li>
+                        <li class="feature-item highlighted">Exam-focused preparation (Goethe/ÖSD)</li>
+                        <li class="feature-item highlighted">Access to Fluentio German Community</li>
+                    </ul>
+
+                    <div class="outcome-box">
+                        <strong>🎯 Your Outcome</strong>
+                        <p>"I can communicate fluently in routine tasks and describe my background."</p>
+                    </div>
+
+                    <a href="contact.html" class="btn-enroll-premium">Enroll in A2</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- ══════════════════════════════════
+         COMPARISON TABLE
+    ══════════════════════════════════ -->
+    <section class="comparison-section">
+        <div class="container">
+            <div class="text-center reveal">
+                <h2>Plan Comparison</h2>
+                <p style="color: var(--gray); margin-top: 8px;">See exactly what's included in each plan</p>
+            </div>
+            <div style="overflow-x: auto;">
+                <table class="compare-table reveal">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th class="col-standard">Standard<br><small style="font-weight:400; color:var(--gray);">PKR 11,999</small></th>
+                            <th><div class="col-header-premium">Premium<br><small style="font-weight:400; opacity:0.8;">PKR 17,999</small></div></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Live group speaking classes</td>
+                            <td class="col-standard"><span class="check-yes">✓</span></td>
+                            <td class="col-premium"><span class="check-yes">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Daily speaking tasks</td>
+                            <td class="col-standard"><span class="check-yes">✓</span></td>
+                            <td class="col-premium"><span class="check-yes">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Real-life conversation practice</td>
+                            <td class="col-standard"><span class="check-yes">✓</span></td>
+                            <td class="col-premium"><span class="check-yes">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Confidence building exercises</td>
+                            <td class="col-standard"><span class="check-yes">✓</span></td>
+                            <td class="col-premium"><span class="check-yes">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Completion certificate</td>
+                            <td class="col-standard"><span class="check-yes">✓</span></td>
+                            <td class="col-premium"><span class="check-yes">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>1-on-1 / small group sessions</td>
+                            <td class="col-standard"><span class="check-no">—</span></td>
+                            <td class="col-premium"><span class="check-yes">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Personal speaking feedback</td>
+                            <td class="col-standard"><span class="check-no">—</span></td>
+                            <td class="col-premium"><span class="check-yes">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Interview preparation English</td>
+                            <td class="col-standard"><span class="check-no">—</span></td>
+                            <td class="col-premium"><span class="check-yes">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Advanced debate sessions</td>
+                            <td class="col-standard"><span class="check-no">—</span></td>
+                            <td class="col-premium"><span class="check-yes">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>IELTS speaking prep</td>
+                            <td class="col-standard"><span class="check-no">—</span></td>
+                            <td class="col-premium"><span class="check-yes">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Weekly progress tracking</td>
+                            <td class="col-standard"><span class="check-no">—</span></td>
+                            <td class="col-premium"><span class="check-yes">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Priority WhatsApp support</td>
+                            <td class="col-standard"><span class="check-no">—</span></td>
+                            <td class="col-premium"><span class="check-yes">✓</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+  <section class="comparison-section" style="background: #f1f5f9; padding: 100px 0;">
+        <div class="container">
+            <div class="text-center reveal" style="margin-bottom: 50px;">
+                <div class="eyebrow" style="background: rgba(245,158,11,0.1); color: var(--accent); display: inline-block; padding: 4px 12px; border-radius: 50px; font-size: 0.8rem; font-weight: 700;">DETAILIERTER VERGLEICH</div>
+                <h2 style="margin-top: 15px; font-family: var(--font-head);">Which Level is Right for You?</h2>
+                <p style="color: var(--gray); max-width: 600px; margin: 10px auto;">A transparent breakdown of what you'll achieve in our German language tracks.</p>
+            </div>
+            
+            <div style="overflow-x: auto; background: white; border-radius: 24px; box-shadow: var(--shadow); border: 1px solid #e2e8f0;">
+                <table class="compare-table reveal">
+                    <thead>
+                        <tr>
+                            <th style="padding: 30px;">Core Learning Path</th>
+                            <th style="text-align: center;">Level A1</th>
+                            <th style="background: var(--accent); color: white; text-align: center; border-radius: 0 24px 0 0;">Level A2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Goethe/ÖSD Exam Readiness</strong></td>
+                            <td style="text-align: center; color: var(--green); font-weight: bold;">✓</td>
+                            <td style="text-align: center; color: var(--green); font-weight: bold;">✓</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vocabulary for Daily Life</strong></td>
+                            <td style="text-align: center; color: var(--green); font-weight: bold;">✓</td>
+                            <td style="text-align: center; color: var(--green); font-weight: bold;">✓</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Complex Sentence Structures</strong></td>
+                            <td style="text-align: center; color: var(--gray); opacity: 0.3;">—</td>
+                            <td style="text-align: center; color: var(--green); font-weight: bold;">✓</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Professional Email Writing</strong></td>
+                            <td style="text-align: center; color: var(--gray); opacity: 0.3;">—</td>
+                            <td style="text-align: center; color: var(--green); font-weight: bold;">✓</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fluency in Social Gatherings</strong></td>
+                            <td style="text-align: center; color: var(--gray); opacity: 0.3;">—</td>
+                            <td style="text-align: center; color: var(--green); font-weight: bold;">✓</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section" style="padding: 100px 0; background: white;">
+        <div class="container">
+            <div class="text-center reveal" style="margin-bottom: 60px;">
+                <h2 style="font-family: var(--font-head);">Real Students. Life-Changing Results.</h2>
+                <p style="color: var(--gray);">Join 100+ students who overcame the "German Language Barrier."</p>
+            </div>
+            
+            <div class="testimonial-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                
+                <div class="card testimonial-card reveal" style="padding: 40px; border-radius: 20px; position: relative;">
+                    <div style="color: var(--accent); font-size: 3rem; position: absolute; top: 10px; left: 20px; opacity: 0.2; font-family: serif;">&ldquo;</div>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #334155; position: relative; z-index: 1;">
+                        "I was terrified of the German Visa interview. I couldn't even say 'Hello' properly. But the A1 course at Fluentio gave me more than just grammar it gave me the <strong>courage to speak</strong>. I passed my Goethe exam with 88 points and I'm finally joining my husband in Berlin!"
+                    </p>
+                    <div style="margin-top: 30px; display: flex; align-items: center; gap: 15px;">
+                        <div style="width: 50px; height: 50px; background: #e2e8f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--accent);">MF</div>
+                        <div>
+                            <div style="font-weight: 700;">Gulbano.</div>
+                            <div style="font-size: 0.85rem; color: var(--gray);">Visa Success • Swat</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card testimonial-card reveal" style="padding: 40px; border-radius: 20px; position: relative;">
+                    <div style="color: var(--accent); font-size: 3rem; position: absolute; top: 10px; left: 20px; opacity: 0.2; font-family: serif;">&ldquo;</div>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #334155; position: relative; z-index: 1;">
+                        "The A2 track is intense but worth every second. I used to get stuck after one sentence, but now I can actually <strong>hold a conversation</strong> with my colleagues in Germany. The community support here makes you feel like you aren't learning alone."
+                    </p>
+                    <div style="margin-top: 30px; display: flex; align-items: center; gap: 15px;">
+                        <div style="width: 50px; height: 50px; background: #e2e8f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--accent);">HB</div>
+                        <div>
+                            <div style="font-weight: 700;">Hamza B.</div>
+                            <div style="font-size: 0.85rem; color: var(--gray);">University Student • Lahore</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════
+         TESTIMONIALS
+    ══════════════════════════════════ -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="text-center reveal">
+                <h2>Real Students. Real Results.</h2>
+                <p style="color: var(--gray); margin-top: 8px;">What our students say after completing the course</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card reveal">
+                    <div class="quote-mark">"</div>
+                    <p>I used to freeze during interviews. After 6 weeks at Fluentio, I gave my best interview ever and got the job. The speaking practice is unlike anything else I tried.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AK</div>
+                        <div class="author-info">
+                            <div class="stars">★★★★★</div>
+                            <strong>Ahmed K.</strong>
+                            <span>Job Seeker → Software Engineer, Lahore</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="quote-mark">"</div>
+                    <p>Itna asan nahi tha mere liye English mein baat karna. Fluentio ne meri soch badal di. Ab mein apni freelance clients se confidently baat karta hoon.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">ZM</div>
+                        <div class="author-info">
+                            <div class="stars">★★★★★</div>
+                            <strong>Zain M.</strong>
+                            <span>Freelancer, Rawalpindi</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="quote-mark">"</div>
+                    <p>I was preparing for IELTS speaking and this course helped me understand how to think in English. My band score improved by 1.5 after just one month.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SR</div>
+                        <div class="author-info">
+                            <div class="stars">★★★★★</div>
+                            <strong>Sana R.</strong>
+                            <span>IELTS Student, Islamabad</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════
+         FAQ
+    ══════════════════════════════════ -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="text-center reveal">
+                <h2>Frequently Asked Questions</h2>
+                <p style="color: var(--gray); margin-top: 8px;">Everything you need to know before enrolling</p>
+            </div>
+            <div class="faq-list reveal">
+                <div class="faq-item open">
+                    <div class="faq-q">Are the classes live or recorded? <span class="arrow">+</span></div>
+                    <div class="faq-a">All classes are conducted live via Zoom or Google Meet. This is intentional — real speaking confidence only comes from live practice with a real instructor. Recordings are shared after each session.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">I'm a complete beginner. Is this suitable for me? <span class="arrow">+</span></div>
+                    <div class="faq-a">Absolutely. The Standard Plan is designed specifically for beginners. We start from everyday spoken English and build you up to confident, natural communication — no heavy grammar theory required.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">How long is each course? <span class="arrow">+</span></div>
+                    <div class="faq-a">The Standard Plan is a 30–45 day program. The Premium Plan is 45–60 days depending on your goals. You'll feel a noticeable difference within the first two weeks.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">What's the difference between Standard and Premium? <span class="arrow">+</span></div>
+                    <div class="faq-a">Standard is group-based and ideal for general fluency. Premium adds 1-on-1 sessions, personal feedback, interview preparation, and weekly progress tracking — perfect for serious learners with specific goals like job interviews or IELTS.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">How do I pay? Is it safe? <span class="arrow">+</span></div>
+                    <div class="faq-a">Payment can be made via EasyPaisa, JazzCash, or bank transfer. Contact us on WhatsApp and we'll guide you through enrollment in minutes.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════
+         FINAL CTA
+    ══════════════════════════════════ -->
+    <section class="final-cta">
+        <div class="container">
+            <h2 class="reveal">Your Voice Deserves<br>to Be Heard — Clearly.</h2>
+            <p class="reveal">Join hundreds of Pakistani students who stopped being silent and started speaking with confidence.</p>
+            <div class="cta-group reveal">
+                <a href="contact.html" class="btn btn-primary" style="font-size: 1rem; padding: 16px 40px;">Enroll Now</a>
+                <a href="https://wa.me/923132825220" class="btn btn-secondary" style="font-size: 1rem; padding: 16px 40px;">WhatsApp Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>Fluentio<span>Academia</span></h3>
+                    <p style="color: var(--gray); font-size: 0.9rem; max-width: 300px; margin-top: 10px;">
+                        Empowering Pakistani students through spoken English mastery.
+                    </p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul style="margin-top: 10px; line-height: 2;">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <div class="socials" style="margin-top: 10px;">
+                        <a href="#">IG</a>
+                        <a href="#">FB</a>
+                        <a href="#">TT</a>
+                    </div>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #eee; padding-top: 20px; text-align: center; color: var(--gray); font-size: 0.8rem;">
+                &copy; <span id="year"></span> Fluentio Academia. Designed with care.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // FAQ accordion
+        document.querySelectorAll('.faq-q').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
+                const isOpen = item.classList.contains('open');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+                if (!isOpen) item.classList.add('open');
+            });
+        });
+    </script>
+</body>
+</html>
