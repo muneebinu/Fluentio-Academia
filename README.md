@@ -3,7 +3,7 @@
 Fluentio Academia is a high-performance, modern web platform designed for a language learning startup. The site bridges the gap between traditional grammar rules and real-world communication confidence, specializing in English mastery and German (up to A2) instruction.
 
 ## 🚀 Live Demo
-[Insert your GitHub Pages or Vercel link here]
+[https://muneebinu.github.io/Fluentio-Academia/]
 
 ## ✨ Key Features
 
