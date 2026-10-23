@@ -3,190 +3,183 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fluentio Academia | Glass design preview</title>
+<title>Fluentio Academia | Design preview</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--primary:#4f46e5;--pink:#ec4899;--cyan:#22d3ee;--dark:#0f172a;--gray:#5b6578;
---glass:rgba(255,255,255,.55);--edge:rgba(255,255,255,.75);
---shadow:0 24px 48px -24px rgba(79,70,229,.35),0 2px 6px rgba(15,23,42,.05);
---head:'Outfit',sans-serif;--body:'Inter',sans-serif}
+:root{--ink:#1d1d1f;--mute:#6e6e73;--bg:#fff;--panel:#f5f5f7;--line:#d2d2d7;--blue:#0071e3;--blue-d:#0062c4;
+--font:'Inter',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:var(--body);color:var(--dark);line-height:1.6;background:#eef1fb;overflow-x:hidden}
-h1,h2,h3{font-family:var(--head);line-height:1.12;letter-spacing:-.02em}
+body{font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.47;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}ul{list-style:none}img{max-width:100%;display:block}
-:focus-visible{outline:3px solid var(--primary);outline-offset:3px}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
 
-/* colorful light behind the glass */
-.aurora{position:fixed;inset:0;z-index:-1;overflow:hidden;background:linear-gradient(180deg,#f4f6ff,#eaeefc)}
-.aurora i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55}
-.aurora i:nth-child(1){width:520px;height:520px;background:var(--primary);top:-140px;left:-120px}
-.aurora i:nth-child(2){width:460px;height:460px;background:var(--pink);top:120px;right:-140px;opacity:.4}
-.aurora i:nth-child(3){width:420px;height:420px;background:var(--cyan);bottom:-140px;left:30%;opacity:.35}
+/* navigation */
+header{position:fixed;top:0;left:0;right:0;z-index:100;height:56px;background:rgba(255,255,255,.8);
+-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid transparent;transition:border-color .3s}
+header.scrolled{border-bottom-color:rgba(0,0,0,.1)}
+header nav{max-width:1080px;margin:0 auto;height:100%;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:9px;font-weight:600;font-size:1.05rem;letter-spacing:-.01em}
+.logo img{height:26px;width:auto}
+.nav-links{display:flex;align-items:center;gap:30px;font-size:.85rem}
+.nav-links a{color:#424245;transition:color .2s}.nav-links a:hover,.nav-links a.active{color:var(--ink)}
+.nav-links .nav-cta{background:var(--blue);color:#fff;padding:6px 15px;border-radius:980px}
+.nav-links .nav-cta:hover{background:var(--blue-d);color:#fff}
+.hamburger{display:none;flex-direction:column;gap:6px;padding:10px;cursor:pointer}
+.hamburger span{width:20px;height:1.5px;background:var(--ink);transition:.3s}
 
-.container{max-width:1120px;margin:0 auto;padding:0 22px}
-.glass{background:var(--glass);-webkit-backdrop-filter:blur(26px) saturate(180%);backdrop-filter:blur(26px) saturate(180%);
-border:1px solid var(--edge);box-shadow:inset 0 1px 0 rgba(255,255,255,.95),var(--shadow);border-radius:28px}
-
-/* floating pill nav */
-header{position:fixed;top:14px;left:0;right:0;z-index:100;padding:0 14px}
-header nav{max-width:1000px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:8px 10px 8px 18px;border-radius:999px;
-background:rgba(255,255,255,.55);-webkit-backdrop-filter:blur(26px) saturate(180%);backdrop-filter:blur(26px) saturate(180%);
-border:1px solid var(--edge);box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 10px 30px -12px rgba(15,23,42,.25);transition:.3s}
-header.scrolled nav{background:rgba(255,255,255,.78)}
-.logo{display:flex;align-items:center;gap:8px;font-family:var(--head);font-weight:800;font-size:1.15rem}
-.logo img{height:30px;width:auto}.logo span{color:var(--primary)}
-.nav-links{display:flex;align-items:center;gap:6px}
-.nav-links a:not(.btn){padding:8px 14px;border-radius:999px;font-weight:500;font-size:.95rem;color:#334155}
-.nav-links a:not(.btn):hover,.nav-links a.active{background:rgba(79,70,229,.1);color:var(--primary)}
-.hamburger{display:none;flex-direction:column;gap:5px;padding:12px;cursor:pointer}
-.hamburger span{width:22px;height:2px;background:var(--dark);border-radius:2px;transition:.3s}
-
-/* capsule buttons */
-.btn{position:relative;display:inline-block;padding:14px 30px;border-radius:999px;font-weight:600;font-size:1rem;overflow:hidden;transition:transform .25s,box-shadow .25s}
-.btn-primary{color:#fff;background:linear-gradient(135deg,#6366f1,var(--primary) 55%,#7c3aed);box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 12px 24px -10px rgba(79,70,229,.7)}
-.btn-primary::after{content:"";position:absolute;left:8%;right:8%;top:2px;height:45%;border-radius:999px;background:linear-gradient(rgba(255,255,255,.4),rgba(255,255,255,0));pointer-events:none}
-.btn-glass{color:var(--dark);background:rgba(255,255,255,.6);border:1px solid var(--edge);box-shadow:inset 0 1px 0 #fff,0 8px 20px -10px rgba(15,23,42,.25)}
-.btn:hover{transform:translateY(-2px)}
+/* buttons */
+.btn{display:inline-block;padding:12px 24px;border-radius:980px;font-size:1.05rem;font-weight:500;background:var(--blue);color:#fff;transition:background .2s}
+.btn:hover{background:var(--blue-d)}
+.link{color:var(--blue);font-size:1.05rem;font-weight:500}.link:hover{text-decoration:underline}
+.link::after{content:" \203A"}
 
 /* hero */
-.hero{padding:170px 0 90px}
-.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
-.pill{display:inline-block;padding:7px 16px;border-radius:999px;font-size:.85rem;font-weight:600;color:var(--primary);margin-bottom:22px}
-.hero h1{font-size:clamp(2.4rem,5.6vw,4.2rem);font-weight:800}
-.gradient-text{background:linear-gradient(120deg,var(--primary),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero p.lead{font-size:1.15rem;color:var(--gray);margin:22px 0 32px;max-width:520px}
-.cta-group{display:flex;gap:14px;flex-wrap:wrap}
-.cert-demo{padding:30px;text-align:center;transform:rotate(1.5deg)}
-.cert-demo .tag{font-size:.75rem;color:var(--gray);margin-bottom:14px}
-.cert-demo .ok{display:inline-flex;gap:8px;align-items:center;padding:8px 18px;border-radius:999px;background:rgba(16,185,129,.15);color:#047857;font-weight:700;margin-bottom:18px}
-.cert-demo h3{font-size:1.7rem}.cert-demo .course{color:var(--primary);font-weight:600;margin:4px 0 16px}
-.cert-demo small{color:var(--gray)}
+.hero{padding:150px 0 90px;text-align:center}
+.hero h1{font-size:clamp(2.6rem,6.5vw,5rem);font-weight:700;letter-spacing:-.035em;line-height:1.05;max-width:880px;margin:0 auto}
+.hero p{font-size:clamp(1.15rem,2.2vw,1.45rem);color:var(--mute);max-width:640px;margin:22px auto 34px;line-height:1.4;letter-spacing:-.01em}
+.actions{display:flex;gap:26px;justify-content:center;align-items:center;flex-wrap:wrap}
 
-/* sections */
-section{padding:80px 0}
-.center{text-align:center;max-width:620px;margin:0 auto 46px}
-.center h2{font-size:clamp(1.9rem,4vw,2.7rem)}.center p{color:var(--gray);margin-top:12px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.card{padding:32px 28px;transition:transform .3s,box-shadow .3s}
-.card:hover{transform:translateY(-6px)}
-.icon{width:54px;height:54px;border-radius:18px;display:grid;place-items:center;font-size:1.6rem;margin-bottom:18px;background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(255,255,255,.4));border:1px solid var(--edge);box-shadow:inset 0 1px 0 #fff,0 8px 18px -8px rgba(79,70,229,.35)}
-.card h3{font-size:1.3rem;margin-bottom:8px}.card p{color:var(--gray)}
-.step b{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;margin-bottom:16px;color:#fff;font-family:var(--head);background:linear-gradient(135deg,#6366f1,var(--pink))}
-.cta{padding:56px 30px;text-align:center}.cta h2{font-size:clamp(1.8rem,4vw,2.5rem)}.cta p{color:var(--gray);margin:12px 0 28px}
+/* tiles */
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding-bottom:16px}
+.tile{background:var(--panel);border-radius:28px;padding:48px 44px;min-height:380px;display:flex;flex-direction:column}
+.tile.wide{grid-column:1/-1;min-height:340px}
+.tile.dark{background:var(--ink);color:#f5f5f7}
+.tile h2{font-size:clamp(1.8rem,3.4vw,2.6rem);font-weight:700;letter-spacing:-.03em;line-height:1.1;max-width:480px}
+.tile p{font-size:1.1rem;color:var(--mute);margin-top:14px;max-width:460px;line-height:1.45}
+.tile.dark p{color:#a1a1a6}
+.tile .link{margin-top:auto;padding-top:28px}
+.tile.dark .link{color:#2997ff}
+.level{display:flex;gap:10px;margin-top:auto;padding-top:28px}
+.level span{border:1px solid var(--line);background:#fff;border-radius:980px;padding:6px 18px;font-weight:600;font-size:.95rem}
 
-footer{padding:50px 0 34px}
-.footer-box{padding:34px}
-.footer-content{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px}
-.footer-content h3{font-size:1.3rem}.footer-content h3 span,.footer-content p{color:var(--gray)}
-.footer-content h4{margin-bottom:8px}.footer-content li{line-height:2;color:var(--gray)}.footer-content li a:hover{color:var(--primary)}
-.copy{margin-top:26px;padding-top:18px;border-top:1px solid rgba(15,23,42,.08);text-align:center;color:var(--gray);font-size:.85rem}
+/* steps */
+.band{padding:110px 0 100px}
+.band h2.title{font-size:clamp(2rem,4vw,3rem);font-weight:700;letter-spacing:-.03em;text-align:center}
+.band .sub{text-align:center;color:var(--mute);font-size:1.2rem;margin:12px auto 60px;max-width:560px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.step{border-top:1px solid var(--line);padding-top:22px}
+.step small{color:var(--mute);font-weight:600;font-size:.9rem}
+.step h3{font-size:1.5rem;font-weight:600;letter-spacing:-.02em;margin:8px 0 8px}
+.step p{color:var(--mute)}
 
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s,transform .8s}
-.reveal.active{opacity:1;transform:none}
+/* closing */
+.closing{background:var(--panel);text-align:center;padding:100px 0}
+.closing h2{font-size:clamp(2rem,4.4vw,3.2rem);font-weight:700;letter-spacing:-.03em;line-height:1.1}
+.closing p{color:var(--mute);font-size:1.2rem;margin:14px 0 30px}
+
+/* footer */
+footer{background:var(--panel);border-top:1px solid var(--line);padding:30px 0 34px;font-size:.8rem;color:var(--mute)}
+.flag{display:flex;width:36px;height:4px;border-radius:2px;overflow:hidden;margin-bottom:18px}
+.flag i{flex:1}.flag i:nth-child(1){background:#000}.flag i:nth-child(2){background:#dd0000}.flag i:nth-child(3){background:#ffce00}
+.fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:30px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+.fgrid h4{color:var(--ink);font-size:.8rem;font-weight:600;margin-bottom:8px}
+.fgrid li{padding:3px 0}.fgrid a:hover{color:var(--ink);text-decoration:underline}
+.fgrid .brand{color:var(--ink);font-weight:600;font-size:.95rem}
+.copy{padding-top:16px}
 
 @media(max-width:860px){
-.hero{padding-top:140px}.hero-grid,.grid,.footer-content{grid-template-columns:1fr}
-.hamburger{display:flex}
-.nav-links{position:absolute;top:70px;left:14px;right:14px;flex-direction:column;align-items:stretch;padding:14px;border-radius:26px;gap:4px;
-background:rgba(255,255,255,.85);-webkit-backdrop-filter:blur(26px);backdrop-filter:blur(26px);border:1px solid var(--edge);box-shadow:0 20px 40px -16px rgba(15,23,42,.3);
-opacity:0;pointer-events:none;transform:translateY(-8px);transition:.25s}
+.tiles{grid-template-columns:1fr}.tile{padding:36px 28px;min-height:320px}.steps,.fgrid{grid-template-columns:1fr}.steps{gap:28px}
+.hero{padding-top:120px}.hamburger{display:flex}
+.nav-links{position:absolute;top:56px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;padding:8px 24px 20px;background:rgba(255,255,255,.97);
+border-bottom:1px solid var(--line);opacity:0;pointer-events:none;transform:translateY(-6px);transition:.25s;font-size:1rem}
 .nav-links.mobile-active{opacity:1;pointer-events:auto;transform:none}
-.nav-links a{text-align:center}
-.cert-demo{transform:none}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
-@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.glass,header nav{background:rgba(255,255,255,.92)}}
+.nav-links li a{display:block;padding:12px 0;border-bottom:1px solid #eee}
+.nav-links .nav-cta{text-align:center;margin-top:14px;padding:12px;border-bottom:0}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
 
 <header id="header">
   <nav>
-    <a class="logo" href="index.html"><img src="assets/logo.png" alt="Fluentio Academia logo">Fluentio<span>Academia</span></a>
+    <a class="logo" href="index.html"><img src="assets/logo.png" alt="Fluentio Academia logo">Fluentio Academia</a>
     <ul class="nav-links">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="courses.html">Courses</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="contact.html" class="btn btn-primary" style="padding:10px 22px;font-size:.92rem">Start Learning</a></li>
+      <li><a href="contact.html" class="nav-cta">Enroll</a></li>
     </ul>
     <div class="hamburger" aria-label="Menu"><span></span><span></span><span></span></div>
   </nav>
 </header>
 
+<main>
 <section class="hero">
-  <div class="container hero-grid">
-    <div class="reveal">
-      <span class="pill glass">German A1 to B1 · Spoken English</span>
-      <h1>Learn German &amp; English Online <br><span class="gradient-text" id="typewriter"></span></h1>
-      <p class="lead">Structured courses from A1 to B1. Build grammar, vocabulary, speaking, listening, reading and writing with practical lessons and expert guidance.</p>
-      <div class="cta-group">
-        <a href="courses.html" class="btn btn-primary">Enroll Now</a>
-        <a href="contact.html" class="btn btn-glass">Have Questions?</a>
-      </div>
-    </div>
-    <div class="reveal">
-      <div class="glass cert-demo">
-        <div class="tag">Sample certificate check</div>
-        <div class="ok">✔ Certified</div>
-        <h3>Student Name</h3>
-        <div class="course">German A1</div>
-        <small>Every Fluentio certificate can be verified online with its QR code.</small>
-      </div>
+  <div class="wrap">
+    <h1>Learn German and English with confidence.</h1>
+    <p>Structured online courses from A1 to B1, built around speaking, listening, reading and writing.</p>
+    <div class="actions">
+      <a href="contact.html" class="btn">Enroll now</a>
+      <a href="courses.html" class="link">Explore courses</a>
     </div>
   </div>
 </section>
 
-<section>
-  <div class="container">
-    <div class="center reveal">
-      <h2>Not just another language class</h2>
-      <p>We bridge the gap between textbook knowledge and real-world confidence.</p>
+<section class="wrap">
+  <div class="tiles">
+    <div class="tile">
+      <h2>German, A1 to B1.</h2>
+      <p>A clear path from your first sentences to everyday conversation, with exam preparation along the way.</p>
+      <div class="level"><span>A1</span><span>A2</span><span>B1</span></div>
     </div>
-    <div class="grid">
-      <div class="glass card reveal"><div class="icon">🎤</div><h3>Public Speaking</h3><p>Master debating and public speaking. We train you to speak effectively in any situation.</p></div>
-      <div class="glass card reveal"><div class="icon">🇩🇪</div><h3>German A1 – B1</h3><p>Structured pathways to help you speak German with confidence in months, not years.</p></div>
-      <div class="glass card reveal"><div class="icon">🤝</div><h3>Real Communication</h3><p>We teach you how to be understood, not just how to pass a written test.</p></div>
+    <div class="tile">
+      <h2>Spoken English.</h2>
+      <p>Practice speaking in live classes until interviews, meetings and everyday conversations feel natural.</p>
+      <a href="courses.html" class="link">See the course</a>
+    </div>
+    <div class="tile">
+      <h2>Public speaking.</h2>
+      <p>Learn to debate, present and be understood in any situation, in any language you study.</p>
+      <a href="courses.html" class="link">Learn more</a>
+    </div>
+    <div class="tile dark">
+      <h2>Certificates you can verify.</h2>
+      <p>Every certificate carries a QR code. Scan it to confirm the student, the course and the result on our website.</p>
+      <a href="verify.html" class="link">Verify a certificate</a>
     </div>
   </div>
 </section>
 
-<section>
-  <div class="container">
-    <div class="center reveal"><h2>How it works</h2><p>Three simple steps from first message to first class.</p></div>
-    <div class="grid">
-      <div class="glass card step reveal"><b>1</b><h3>Message us</h3><p>Fill in the enrollment form or chat with us on WhatsApp.</p></div>
-      <div class="glass card step reveal"><b>2</b><h3>Pick your course</h3><p>We help you choose the right level and class time.</p></div>
-      <div class="glass card step reveal"><b>3</b><h3>Start learning</h3><p>Join live classes and earn a certificate you can verify online.</p></div>
+<section class="band">
+  <div class="wrap">
+    <h2 class="title">Start in three steps.</h2>
+    <p class="sub">From your first message to your first class.</p>
+    <div class="steps">
+      <div class="step"><small>Step 1</small><h3>Get in touch</h3><p>Send us a message on WhatsApp or fill in the enrollment form.</p></div>
+      <div class="step"><small>Step 2</small><h3>Choose your course</h3><p>We help you pick the right level and a class time that suits you.</p></div>
+      <div class="step"><small>Step 3</small><h3>Start learning</h3><p>Join live classes and earn a certificate you can verify online.</p></div>
     </div>
   </div>
 </section>
 
-<section>
-  <div class="container">
-    <div class="glass cta reveal">
-      <h2>Ready to start speaking?</h2>
-      <p>Join Fluentio Academia and learn with confidence.</p>
-      <a href="contact.html" class="btn btn-primary">Enroll Now</a>
-    </div>
+<section class="closing">
+  <div class="wrap">
+    <h2>Ready when you are.</h2>
+    <p>Join Fluentio Academia and start speaking.</p>
+    <a href="contact.html" class="btn">Enroll now</a>
   </div>
 </section>
+</main>
 
 <footer>
-  <div class="container">
-    <div class="glass footer-box">
-      <div class="footer-content">
-        <div><h3>Fluentio<span>Academia</span></h3><p style="margin-top:10px;max-width:300px;font-size:.92rem">Empowering students globally through language mastery.</p></div>
-        <div><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="courses.html">Courses</a></li><li><a href="contact.html">Contact</a></li><li><a href="verify.html">Verify Certificate</a></li></ul></div>
-        <div><h4>Connect</h4><ul><li><a href="https://wa.me/923415102172" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="https://www.facebook.com/profile.php?id=61594487991673" target="_blank" rel="noopener">Facebook</a></li></ul></div>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="flag" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="brand">Fluentio Academia</div>
+        <p style="margin-top:6px;max-width:280px">Empowering students globally through language mastery.</p>
       </div>
-      <div class="copy">&copy; <span id="year"></span> Fluentio Academia. Designed with care.</div>
+      <div><h4>Explore</h4><ul><li><a href="index.html">Home</a></li><li><a href="courses.html">Courses</a></li><li><a href="about.html">About</a></li><li><a href="verify.html">Verify Certificate</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="contact.html">Enroll</a></li><li><a href="https://wa.me/923415102172" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="https://www.facebook.com/profile.php?id=61594487991673" target="_blank" rel="noopener">Facebook</a></li></ul></div>
     </div>
+    <div class="copy">&copy; <span id="year"></span> Fluentio Academia. All rights reserved.</div>
   </div>
 </footer>
 
