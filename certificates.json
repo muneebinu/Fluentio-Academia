@@ -2,15 +2,22 @@
   "FLU-A1-W7K2": {
     "name": "Waqas Ahmed",
     "course": "German A1",
-    "status": "pending",
+    "status": "enrolled",
     "result": "",
     "issued": ""
   },
   "FLU-A1-N4P9": {
     "name": "Nuzhat Bibi",
     "course": "German A1",
-    "status": "pending",
+    "status": "enrolled",
     "result": "",
     "issued": ""
+  },
+  "FLU-B1-MUN1": {
+    "name": "Muneeb Ur Rehman",
+    "course": "German B1",
+    "status": "issued",
+    "result": "Passed",
+    "issued": "2026-06-24"
   }
 }
