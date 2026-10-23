@@ -19,6 +19,19 @@
     <meta name="twitter:title" content="Contact | Fluentio Academia">
     <meta name="twitter:description" content="Get in touch with Fluentio Academia. Reach out for enrollment, course questions, or support for our online German and English language courses.">
     <meta name="twitter:image" content="https://muneebinu.github.io/Fluentio-Academia/assets/logo.png">
+    <style>
+        .enroll-form { background: #fff; border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); }
+        .enroll-form h3 { margin-bottom: 4px; }
+        .ef-sub { color: var(--gray); font-size: 0.9rem; margin-bottom: 16px; }
+        .enroll-form label { display: block; font-weight: 600; font-size: 0.9rem; margin: 14px 0 6px; }
+        .enroll-form label span { color: var(--gray); font-weight: 400; }
+        .enroll-form input, .enroll-form select, .enroll-form textarea { width: 100%; padding: 12px 14px; border: 1px solid #cbd5e1; border-radius: 10px; font: inherit; background: #fff; color: var(--dark); }
+        .enroll-form input:focus, .enroll-form select:focus, .enroll-form textarea:focus { outline: 2px solid var(--primary); border-color: transparent; }
+        #ef-trap { position: absolute; left: -9999px; height: 0; width: 0; opacity: 0; }
+        .ef-error { color: #b91c1c; font-size: 0.9rem; min-height: 1.2em; margin: 12px 0 8px; }
+        .enroll-form .btn { width: 100%; cursor: pointer; border: 0; }
+        .ef-note { color: var(--gray); font-size: 0.8rem; text-align: center; margin-top: 10px; }
+    </style>
 </head>
 <body>
 
@@ -50,7 +63,7 @@
                     
                     <div style="margin-bottom: 20px;">
                         <h4>WhatsApp</h4>
-                        <a href="https://wa.me/923132825220" style="color: var(--accent); font-weight: 500;">+923132825220</a>
+                        <a href="https://wa.me/923415102172" style="color: var(--accent); font-weight: 500;">+923415102172</a>
                     </div>
 
                     <div style="margin-bottom: 20px;">
@@ -81,7 +94,46 @@
                 </div>
 
                 <div class="contact-form-container">
-                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeRN-eCus45LDk78i_p7ZQY9-wm9JNl---d42CnoU70MtBkFQ/viewform?embedded=true" width="100%" height="1169" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                    <form id="enroll-form" class="enroll-form" novalidate>
+                        <h3>Enroll or ask a question</h3>
+                        <p class="ef-sub">Fill this in and we will reply on WhatsApp.</p>
+
+                        <label for="ef-name">Full name</label>
+                        <input id="ef-name" name="name" type="text" autocomplete="name" required>
+
+                        <label for="ef-phone">WhatsApp number</label>
+                        <input id="ef-phone" name="phone" type="tel" autocomplete="tel" placeholder="+92 300 1234567" required>
+
+                        <label for="ef-email">Email <span>(optional)</span></label>
+                        <input id="ef-email" name="email" type="email" autocomplete="email">
+
+                        <label for="ef-course">Course</label>
+                        <select id="ef-course" name="course" required>
+                            <option value="">Choose a course</option>
+                            <option>German A1</option>
+                            <option>German A2</option>
+                            <option>German B1</option>
+                            <option>Spoken English</option>
+                            <option>Not sure yet</option>
+                        </select>
+
+                        <label for="ef-time">Preferred class time</label>
+                        <select id="ef-time" name="time">
+                            <option value="">No preference</option>
+                            <option>Morning</option>
+                            <option>Afternoon</option>
+                            <option>Evening</option>
+                        </select>
+
+                        <label for="ef-msg">Message <span>(optional)</span></label>
+                        <textarea id="ef-msg" name="message" rows="3"></textarea>
+
+                        <input type="text" name="website" id="ef-trap" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+                        <p class="ef-error" id="ef-error" role="alert"></p>
+                        <button type="submit" class="btn btn-primary">Send on WhatsApp</button>
+                        <p class="ef-note">This opens WhatsApp with your details filled in. You press send.</p>
+                    </form>
                 </div>
             </div>
         </div>
@@ -92,6 +144,23 @@
             <p style="color: var(--gray);">&copy; <span id="year"></span> Fluentio Academia.</p>
         </div>
     </footer>
-    <script src="script.js"></script>
+        <script src="script.js"></script>
+    <script>
+    document.getElementById('enroll-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var f = e.target, err = document.getElementById('ef-error');
+        if (f.website.value) return; // spam trap
+        var name = f.name.value.trim(), phone = f.phone.value.trim(), course = f.course.value;
+        if (!name || !phone || !course) { err.textContent = 'Please fill in your name, WhatsApp number and course.'; return; }
+        if (phone.replace(/\D/g, '').length < 10) { err.textContent = 'Please enter a valid WhatsApp number.'; return; }
+        err.textContent = '';
+        var lines = ['Hello Fluentio Academia, I would like to enroll.', '',
+            'Name: ' + name, 'WhatsApp: ' + phone, 'Course: ' + course];
+        if (f.email.value.trim()) lines.push('Email: ' + f.email.value.trim());
+        if (f.time.value) lines.push('Preferred time: ' + f.time.value);
+        if (f.message.value.trim()) lines.push('Message: ' + f.message.value.trim());
+        window.open('https://wa.me/923415102172?text=' + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');
+    });
+    </script>
 </body>
 </html>
