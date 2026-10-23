@@ -24,6 +24,24 @@
         .v-item { background: var(--light); border: 1px solid #e2e8f0; border-radius: 12px; padding: 12px 14px; }
         .v-item small { display: block; color: var(--gray); font-size: 0.75rem; margin-bottom: 2px; }
         .v-item b { word-break: break-word; }
+        .cert { position: relative; border: 2px solid var(--primary); border-radius: 14px; padding: 8px; background: #fff; text-align: center; }
+        .cert-inner { border: 1px solid #c7d2fe; border-radius: 9px; padding: 26px 20px 22px; }
+        .cert.pending { border-color: #d6a62b; } .cert.pending .cert-inner { border-color: #f3dfa6; }
+        .cert.revoked { border-color: #dc2626; } .cert.revoked .cert-inner { border-color: #fecaca; }
+        .cert-brand { display: flex; align-items: center; justify-content: center; gap: 8px; font-family: var(--font-head); font-weight: 700; font-size: 1.1rem; }
+        .cert-brand img { height: 32px; width: auto; }
+        .cert-brand span { color: var(--primary); }
+        .cert-title { color: var(--gray); font-size: 0.85rem; margin: 6px 0 20px; }
+        .cert-pre { color: var(--gray); font-size: 0.9rem; }
+        .cert-name { font-size: 2rem; margin: 4px 0 6px; color: var(--dark); }
+        .cert-course { font-family: var(--font-head); font-size: 1.15rem; color: var(--primary); font-weight: 600; margin-bottom: 18px; }
+        .cert-pill { display: inline-flex; align-items: center; gap: 8px; padding: 9px 20px; border-radius: 999px; font-weight: 700; font-size: 1rem; margin-bottom: 20px; }
+        .cert-pill svg { width: 20px; height: 20px; }
+        .cert-pill.ok { background: #e8f8f1; color: #047857; }
+        .cert-pill.wait { background: #fef3c7; color: #92400e; }
+        .cert-pill.bad { background: #fee2e2; color: #b91c1c; }
+        .cert-note { color: var(--gray); font-size: 0.9rem; margin: 0 auto 4px; max-width: 380px; }
+        .cert-foot { margin-top: 18px; padding-top: 14px; border-top: 1px dashed #cbd5e1; color: var(--gray); font-size: 0.78rem; }
         .v-form { display: flex; gap: 8px; margin-top: 20px; }
         .v-form input { flex: 1; min-width: 0; padding: 12px 14px; border: 1px solid #cbd5e1; border-radius: 10px; font: inherit; }
         .v-form input:focus { outline: 2px solid var(--primary); border-color: transparent; }
@@ -129,24 +147,47 @@
           if (!c) {
             out.appendChild(badge('bad', 'Certificate not found'));
             out.appendChild(el('p', 'v-sub', 'No certificate with ID "' + id + '" exists in our records. Please check the ID and try again.'));
-          } else if (c.status === 'issued') {
-            out.appendChild(badge('ok', 'Verified: this certificate is authentic'));
-            out.appendChild(el('h2', 'v-name', c.name));
-            out.appendChild(el('p', 'v-sub', 'has successfully completed the course below'));
+            return;
+          }
+          var state = c.status === 'issued' ? 'ok' : (c.status === 'revoked' ? 'bad' : 'wait');
+          var cert = el('div', 'cert' + (state === 'wait' ? ' pending' : state === 'bad' ? ' revoked' : ''));
+          var inner = el('div', 'cert-inner'); cert.appendChild(inner);
+
+          var brand = el('div', 'cert-brand');
+          var logo = el('img'); logo.src = 'assets/logo.png'; logo.alt = '';
+          brand.appendChild(logo);
+          brand.appendChild(document.createTextNode('Fluentio'));
+          brand.appendChild(el('span', '', 'Academia'));
+          inner.appendChild(brand);
+          inner.appendChild(el('div', 'cert-title', state === 'ok' ? 'Certificate of Completion' : 'Student Record'));
+
+          inner.appendChild(el('div', 'cert-pre', state === 'ok' ? 'This is to certify that' : 'Student'));
+          inner.appendChild(el('h2', 'cert-name', c.name));
+          inner.appendChild(el('div', 'cert-course', c.course));
+
+          var pill = el('div', 'cert-pill ' + state);
+          pill.innerHTML = ICON[state];
+          pill.appendChild(el('span', '', state === 'ok' ? 'Certified' : state === 'bad' ? 'Revoked' : 'Exam pending'));
+          inner.appendChild(pill);
+
+          if (state === 'ok') {
             var g = el('div', 'v-grid');
-            g.appendChild(item('Course', c.course));
-            g.appendChild(item('Result', c.result));
+            g.appendChild(item('Result', c.result || 'Passed'));
             g.appendChild(item('Date of issue', pretty(c.issued)));
             g.appendChild(item('Certificate ID', id));
-            out.appendChild(g);
-          } else if (c.status === 'revoked') {
-            out.appendChild(badge('bad', 'This certificate has been revoked'));
-            out.appendChild(el('p', 'v-sub', 'Please contact Fluentio Academia for details.'));
+            g.appendChild(item('Issued by', 'Fluentio Academia'));
+            inner.appendChild(g);
+          } else if (state === 'wait') {
+            inner.appendChild(el('p', 'cert-note', 'This student is enrolled and preparing for the exam. A certificate will be issued once the exam is passed.'));
+            var g2 = el('div', 'v-grid'); g2.style.marginTop = '16px';
+            g2.appendChild(item('Record ID', id));
+            g2.appendChild(item('Issued by', 'Fluentio Academia'));
+            inner.appendChild(g2);
           } else {
-            out.appendChild(badge('wait', 'Not certified yet'));
-            out.appendChild(el('h2', 'v-name', c.name));
-            out.appendChild(el('p', 'v-sub', 'is enrolled in ' + c.course + ' at Fluentio Academia. The exam result is pending, so no certificate has been issued.'));
+            inner.appendChild(el('p', 'cert-note', 'This certificate is no longer valid. Please contact Fluentio Academia for details.'));
           }
+          inner.appendChild(el('div', 'cert-foot', 'Verified against the official records of Fluentio Academia on ' + new Date().toLocaleDateString('en-GB', {day:'numeric', month:'long', year:'numeric'})));
+          out.appendChild(cert);
         }).catch(function () {
           out.textContent = '';
           out.appendChild(badge('bad', 'Could not load records'));
