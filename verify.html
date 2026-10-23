@@ -104,6 +104,7 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="courses.html">Courses</a></li>
                         <li><a href="contact.html">Contact</a></li>
+                        <li><a href="verify.html">Verify Certificate</a></li>
                     </ul>
                 </div>
                 <div>
@@ -149,8 +150,10 @@
             out.appendChild(el('p', 'v-sub', 'No certificate with ID "' + id + '" exists in our records. Please check the ID and try again.'));
             return;
           }
-          var state = c.status === 'issued' ? 'ok' : (c.status === 'revoked' ? 'bad' : 'wait');
-          var cert = el('div', 'cert' + (state === 'wait' ? ' pending' : state === 'bad' ? ' revoked' : ''));
+          var st = c.status;
+          var state = st === 'issued' ? 'ok' : (st === 'revoked' ? 'bad' : (st === 'not_issued' ? 'none' : 'wait'));
+          var label = { issued: 'Certified', revoked: 'Revoked', not_issued: 'No certificate issued', enrolled: 'Currently enrolled', exam_pending: 'Exam pending', pending: 'Exam pending' }[st] || 'Exam pending';
+          var cert = el('div', 'cert' + (state === 'wait' || state === 'none' ? ' pending' : state === 'bad' ? ' revoked' : ''));
           var inner = el('div', 'cert-inner'); cert.appendChild(inner);
 
           var brand = el('div', 'cert-brand');
@@ -165,9 +168,9 @@
           inner.appendChild(el('h2', 'cert-name', c.name));
           inner.appendChild(el('div', 'cert-course', c.course));
 
-          var pill = el('div', 'cert-pill ' + state);
-          pill.innerHTML = ICON[state];
-          pill.appendChild(el('span', '', state === 'ok' ? 'Certified' : state === 'bad' ? 'Revoked' : 'Exam pending'));
+          var pill = el('div', 'cert-pill ' + (state === 'none' ? 'wait' : state));
+          pill.innerHTML = ICON[state === 'none' ? 'wait' : state];
+          pill.appendChild(el('span', '', label));
           inner.appendChild(pill);
 
           if (state === 'ok') {
@@ -177,8 +180,11 @@
             g.appendChild(item('Certificate ID', id));
             g.appendChild(item('Issued by', 'Fluentio Academia'));
             inner.appendChild(g);
-          } else if (state === 'wait') {
-            inner.appendChild(el('p', 'cert-note', 'This student is enrolled and preparing for the exam. A certificate will be issued once the exam is passed.'));
+          } else if (state === 'wait' || state === 'none') {
+            var note = st === 'enrolled' ? 'This student is currently enrolled in the course. A certificate is issued after the exam is passed.'
+              : st === 'not_issued' ? 'No certificate has been issued for this course.'
+              : 'This student is enrolled and preparing for the exam. A certificate will be issued once the exam is passed.';
+            inner.appendChild(el('p', 'cert-note', note));
             var g2 = el('div', 'v-grid'); g2.style.marginTop = '16px';
             g2.appendChild(item('Record ID', id));
             g2.appendChild(item('Issued by', 'Fluentio Academia'));
