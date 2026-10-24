@@ -8,7 +8,6 @@
     <link rel="canonical" href="https://muneebinu.github.io/Fluentio-Academia/about.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <meta property="og:type" content="website">
     <meta property="og:title" content="About Our Mission | Fluentio Academia">
@@ -19,135 +18,80 @@
     <meta name="twitter:title" content="About Our Mission | Fluentio Academia">
     <meta name="twitter:description" content="Meet the team behind Fluentio Academia and discover why we focus on real-world communication, not just grammar rules, for German and English learners worldwide.">
     <meta name="twitter:image" content="https://muneebinu.github.io/Fluentio-Academia/assets/logo.png">
+<style>
+.fac{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.person{display:grid;grid-template-columns:150px 1fr;gap:24px;background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:var(--shadow)}
+.person img{width:150px;height:190px;object-fit:cover;object-position:top;border-radius:16px;background:var(--mist)}
+.person .tag{font-size:.82rem;font-weight:600;color:var(--teal)}
+.person h3{font-size:1.6rem;font-weight:800;margin:2px 0}
+.person .role{color:var(--ink);font-weight:600;font-size:.95rem;margin-bottom:10px}
+.person p{font-size:.95rem}.person .handle{margin-top:10px;font-size:.88rem;color:var(--gray)}
+.why{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+.points li{padding:22px 0 22px 24px;border-left:3px solid var(--teal-l);margin-bottom:6px}
+.points li:nth-child(2){border-color:var(--orange)}
+.points h3{font-size:1.25rem;font-weight:600;font-family:var(--font-body);letter-spacing:-.01em;margin-bottom:4px}
+.points p{color:var(--gray)}
+.quote{background:var(--ink);text-align:center}
+.quote blockquote{font-family:var(--font-head);font-size:clamp(1.6rem,3.4vw,2.5rem);font-weight:600;color:#fff;line-height:1.25;letter-spacing:-.02em;max-width:820px;margin:0 auto}
+.quote cite{display:block;margin-top:22px;font-style:normal;color:#9fb0c4}
+@media(max-width:900px){.fac,.why{grid-template-columns:1fr;gap:30px}.person{grid-template-columns:1fr}.person img{width:140px;height:176px}}
+</style>
 </head>
 <body>
+<header id="header"><div class="container"><nav>
+<div class="logo"><img src="assets/logo.png" alt="Fluentio Academia logo">Fluentio<span>Academia</span></div>
+<ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="courses.html">Courses</a></li><li><a href="about.html" class="active">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="contact.html" class="btn btn-primary">Enroll</a></li></ul>
+<div class="hamburger" aria-label="Menu"><span></span><span></span><span></span></div>
+</nav></div></header>
 
-    <header id="header">
-        <div class="container">
-            <nav>
-                <div class="logo">
-                    <img src="assets/logo.png" alt="Fluentio">
-                    Fluentio<span>Academia</span>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="courses.html">Courses</a></li>
-                    <li><a href="about.html" class="active">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="courses.html" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.9rem;">Start Learning</a></li>
-                </ul>
-                <div class="hamburger"><span></span><span></span><span></span></div>
-            </nav>
-        </div>
-    </header>
+<main>
+<section class="page-head"><div class="container">
+<h1>We teach communication, not just grammar.</h1>
+<p>Fluentio Academia was born from a simple realization: traditional language learning is broken. We bridge the gap between textbook rules and real-world confidence.</p>
+</div></section>
 
-    <section class="section-padding" style="padding-top: 140px; padding-bottom: 60px;">
-        <div class="container">
-            <div class="text-center reveal">
-                <span style="color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem;">Our Story</span>
-                <h1 style="font-size: 3rem; margin-top: 15px;">We teach communication,<br><span class="gradient-text">not just grammar.</span></h1>
-                <p style="color: var(--gray); font-size: 1.2rem; max-width: 800px; margin: 25px auto;">
-                    Fluentio Academia was born from a simple realization: traditional language learning is broken. 
-                    We bridge the gap between textbook rules and real-world confidence.
-                </p>
-            </div>
-        </div>
-    </section>
+<section class="sec band"><div class="container">
+<div class="sec-head"><h2>Meet your teachers.</h2><p>Expert instruction from professionals who understand the journey.</p></div>
+<div class="fac">
+<div class="person reveal"><img src="assets/muneeb.jpg" alt="Muneeb Ur Rehman"><div>
+<div class="tag">German and English</div><h3>Muneeb Ur Rehman</h3><div class="role">Lead instructor: English and German</div>
+<p>A Computer Science graduate and German Teacher, Muneeb brings an analytical and structured approach to language learning. Having studied in the UAE, he specializes in English and German, focusing on real-world application for career growth.</p>
+<div class="handle">@just_muneeb01</div></div></div>
+<div class="person reveal"><img src="assets/zohaib.jpg" alt="Zohaib"><div>
+<div class="tag">English</div><h3>Zohaib</h3><div class="role">Lead instructor: English</div>
+<p>With a strong background in O/A Levels and currently pursuing CA, Zohaib is an expert in technical English. He helps students navigate language barriers and develop the skills needed for academic and professional success.</p>
+<div class="handle">@just_zohaib01</div></div></div>
+</div></div></section>
 
-    <section class="section-padding" style="background: rgba(255,255,255,0.4);">
-        <div class="container">
-            <div class="text-center reveal" style="margin-bottom: 60px;">
-                <h2 style="font-size: 2.2rem;">Meet Our Core Faculty</h2>
-                <p style="color: var(--gray);">Expert instruction from professionals who understand the journey.</p>
-            </div>
+<section class="sec"><div class="container why">
+<div><h2 class="big" style="font-size:clamp(2rem,4vw,3rem);font-weight:800;max-width:560px">Why students choose Fluentio.</h2>
+<p style="color:var(--gray);font-size:1.1rem;margin-top:14px;max-width:520px">We combine modern technology with proven teaching methods to create a learning environment that works.</p></div>
+<ul class="points reveal">
+<li><h3>Personalized feedback</h3><p>Real people correcting your speech and writing, not generic automated replies.</p></li>
+<li><h3>Support in your own language</h3><p>We explain complex ideas in Urdu or Pashto when you are stuck.</p></li>
+<li><h3>Certificates you can verify</h3><p>Every certificate has a QR code that confirms it on our website.</p></li>
+</ul></div></section>
 
-            <div class="founder-grid">
-                <div class="card founder-card reveal">
-                    <div class="badge" style="background: var(--primary);">DE & EN</div>
-                    <img src="assets/muneeb.jpg" alt="Muneeb Ur Rehman" class="founder-img">
-                    <h3>Muneeb Ur Rehman</h3>
-                    <p class="social-handle">Lead Instructor: English & German</p>
-                    <a href="https://instagram.com/just_muneeb01" target="_blank" style="font-size: 0.9rem; color: var(--gray); display: flex; align-items: center; gap: 5px;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.999 0h.001zm-.312 1.442h.312c2.152 0 2.408.008 3.257.046.783.036 1.209.166 1.493.275.377.146.646.32.927.601.281.28.455.55.602.927.108.284.238.71.274 1.493.039.85.047 1.106.047 3.257 0 2.152-.008 2.408-.047 3.257-.036.784-.166 1.209-.274 1.493a2.25 2.25 0 0 1-.602.927c-.28.281-.55.455-.927.602-.284.108-.71.238-1.493.274-.85.039-1.106.047-3.257.047-2.152 0-2.408-.008-3.257-.047-.784-.036-1.209-.166-1.493-.274a2.25 2.25 0 0 1-.927-.602 2.25 2.25 0 0 1-.602-.927c-.108-.284-.238-.71-.274-1.493-.039-.85-.047-1.106-.047-3.257 0-2.152.008-2.408.047-3.257.036-.784.166-1.209.274-1.493.146-.377.32-.646.601-.927.28-.281.55-.455.927-.602.284-.108.71-.238 1.493-.274.85-.039 1.106-.047 3.257-.047h.312zM8 3.891a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334zm4.33-1.156a.96.96 0 1 1-1.92 0 .96.96 0 0 1 1.92 0z"/>
-                        </svg>
-                        @just_muneeb01
-                    </a>
-                    <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0; width: 100%;">
-                    <p style="color: var(--gray); font-size: 0.95rem;">
-                        A Computer Science graduate and PTE certified professional, Muneeb brings an analytical and structured approach to language learning. Having studied in the UAE, he specializes in English and German, focusing on real-world application for career growth.
-                    </p>
-                </div>
+<section class="sec quote"><div class="container">
+<blockquote class="reveal">&ldquo;Language is a tool for connection, not a hurdle to clear. If you can speak your mind, you&rsquo;ve already won half the battle.&rdquo;</blockquote>
+<cite>Our philosophy</cite>
+</div></section>
 
-                <div class="card founder-card reveal">
-                    <div class="badge">ENGLISH</div>
-                    <img src="assets/zohaib.jpg" alt="Zohaib" class="founder-img">
-                    <h3>Zohaib</h3>
-                    <p class="social-handle">Lead Instructor: English</p>
-                    <a href="https://instagram.com/just_zohaib01" target="_blank" style="font-size: 0.9rem; color: var(--gray); display: flex; align-items: center; gap: 5px;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.999 0h.001zm-.312 1.442h.312c2.152 0 2.408.008 3.257.046.783.036 1.209.166 1.493.275.377.146.646.32.927.601.281.28.455.55.602.927.108.284.238.71.274 1.493.039.85.047 1.106.047 3.257 0 2.152-.008 2.408-.047 3.257-.036.784-.166 1.209-.274 1.493a2.25 2.25 0 0 1-.602.927c-.28.281-.55.455-.927.602-.284.108-.71.238-1.493.274-.85.039-1.106.047-3.257.047-2.152 0-2.408-.008-3.257-.047-.784-.036-1.209-.166-1.493-.274a2.25 2.25 0 0 1-.927-.602 2.25 2.25 0 0 1-.602-.927c-.108-.284-.238-.71-.274-1.493-.039-.85-.047-1.106-.047-3.257 0-2.152.008-2.408.047-3.257.036-.784.166-1.209.274-1.493.146-.377.32-.646.601-.927.28-.281.55-.455.927-.602.284-.108.71-.238 1.493-.274.85-.039 1.106-.047 3.257-.047h.312zM8 3.891a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334zm4.33-1.156a.96.96 0 1 1-1.92 0 .96.96 0 0 1 1.92 0z"/>
-                        </svg>
-                        @just_zohaib01
-                    </a>
-                    <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0; width: 100%;">
-                    <p style="color: var(--gray); font-size: 0.95rem;">
-                        With a strong background in O/A Levels and currently pursuing CA, Zohaib is an expert in technical English. He specializes in helping students navigate language barriers and develop the curriculum needed for academic and professional success.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="sec cta-band"><div class="container">
+<h2>Start learning with us.</h2>
+<p>Choose a course or send us a message and we will help you pick the right level.</p>
+<div class="actions"><a href="courses.html" class="btn btn-primary">See courses</a><a href="contact.html" class="btn btn-secondary">Contact us</a></div>
+</div></section>
+</main>
+<footer><div class="container">
+<div class="footer-content">
+<div><h3>Fluentio<span>Academia</span></h3><p style="max-width:300px;margin-top:10px">Empowering students globally through language mastery.</p></div>
+<div><h4>Quick Links</h4><ul style="margin-top:10px;line-height:2"><li><a href="index.html">Home</a></li><li><a href="courses.html">Courses</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="verify.html">Verify Certificate</a></li></ul></div>
+<div><h4>Connect</h4><div class="socials" style="margin-top:10px"><a href="https://wa.me/923415102172" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a><a href="https://www.facebook.com/profile.php?id=61594487991673" target="_blank" rel="noopener" aria-label="Facebook">FB</a></div></div>
+</div>
+<div style="border-top:1px solid var(--line);padding-top:20px;text-align:center;font-size:.85rem">&copy; <span id="year"></span> Fluentio Academia. All rights reserved.</div>
+</div></footer>
 
-    <section class="section-padding">
-        <div class="container">
-            <div class="hero-grid">
-                <div class="reveal">
-                    <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Why students choose <span class="gradient-text">Fluentio.</span></h2>
-                    <p style="color: var(--gray); margin-bottom: 30px;">We’ve combined modern technology with proven linguistic methods to create a learning environment that actually works.</p>
-                    
-                    <div style="display: flex; flex-direction: column; gap: 20px;">
-                        <div style="display: flex; gap: 15px; align-items: start;">
-                            <div style="background: var(--primary); color: white; padding: 5px 10px; border-radius: 8px; font-weight: bold;">01</div>
-                            <div>
-                                <h4 style="margin-bottom: 5px;">Personalized Feedback</h4>
-                                <p style="color: var(--gray); font-size: 0.9rem;">No generic AI responses. Real humans correcting your speech and writing.</p>
-                            </div>
-                        </div>
-                        <div style="display: flex; gap: 15px; align-items: start;">
-                            <div style="background: var(--secondary); color: white; padding: 5px 10px; border-radius: 8px; font-weight: bold;">02</div>
-                            <div>
-                                <h4 style="margin-bottom: 5px;">Multilingual Support</h4>
-                                <p style="color: var(--gray); font-size: 0.9rem;">We explain complex concepts in Urdu or Pashto when you're stuck.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="hero-card-glass reveal" style="max-width: 100%;">
-                    <h3 style="margin-bottom: 15px;">Our Philosophy</h3>
-                    <p style="font-style: italic; color: var(--dark);">"Language is a tool for connection, not a hurdle to clear. If you can speak your mind, you’ve already won half the battle."</p>
-                    <div style="margin-top: 25px; display: flex; gap: 20px;">
-                        <div>
-                            <span style="display: block; font-size: 1.5rem; font-weight: 800; color: var(--primary);">4+</span>
-                            <span style="font-size: 0.8rem; color: var(--gray);">Languages Spoken</span>
-                        </div>
-                        <div style="border-left: 1px solid #ddd; padding-left: 20px;">
-                            <span style="display: block; font-size: 1.5rem; font-weight: 800; color: var(--primary);">100%</span>
-                            <span style="font-size: 0.8rem; color: var(--gray);">Commitment</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container text-center">
-            <p style="color: var(--gray);">&copy; <span id="year"></span> Fluentio Academia.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
