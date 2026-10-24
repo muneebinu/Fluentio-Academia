@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-    <url>
-        <loc>https://muneebinu.github.io/Fluentio-Academia/</loc>
-    </url>
-
-    <url>
-        <loc>https://muneebinu.github.io/Fluentio-Academia/courses.html</loc>
-    </url>
-
-    <url>
-        <loc>https://muneebinu.github.io/Fluentio-Academia/about.html</loc>
-    </url>
-
-    <url>
-        <loc>https://muneebinu.github.io/Fluentio-Academia/contact.html</loc>
-    </url>
-
+  <url>
+    <loc>https://muneebinu.github.io/Fluentio-Academia/</loc>
+    <lastmod>2026-10-24</lastmod>
+  </url>
+  <url>
+    <loc>https://muneebinu.github.io/Fluentio-Academia/courses.html</loc>
+    <lastmod>2026-10-24</lastmod>
+  </url>
+  <url>
+    <loc>https://muneebinu.github.io/Fluentio-Academia/about.html</loc>
+    <lastmod>2026-10-24</lastmod>
+  </url>
+  <url>
+    <loc>https://muneebinu.github.io/Fluentio-Academia/contact.html</loc>
+    <lastmod>2026-10-24</lastmod>
+  </url>
 </urlset>
