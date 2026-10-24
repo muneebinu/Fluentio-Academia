@@ -142,3 +142,20 @@ footer{background:var(--mist);padding:54px 0 24px;margin-top:80px;border-top:1px
   .nav-links.mobile-active{right:0}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+
+/* shared page blocks */
+.page-head{padding:150px 0 70px;position:relative;isolation:isolate;overflow:hidden}
+.page-head::before{content:"";position:absolute;z-index:-1;width:480px;height:480px;border-radius:50%;border:2px solid var(--line);right:-150px;top:30px}
+.page-head h1{font-size:clamp(2.4rem,5.2vw,4rem);font-weight:800;max-width:760px}
+.page-head p{font-size:1.2rem;color:var(--gray);margin:20px 0 0;max-width:580px}
+.sec-head{margin-bottom:48px}
+.sec-head h2{font-size:clamp(2rem,4vw,3rem);font-weight:800}
+.sec-head p{color:var(--gray);font-size:1.1rem;margin-top:12px;max-width:560px}
+.band{background:var(--mist)}
+.cta-band{background:var(--ink);color:#c4d0de;text-align:center}
+.cta-band h2{color:#fff;font-size:clamp(2rem,4vw,3rem);font-weight:800;max-width:640px;margin:0 auto}
+.cta-band p{margin:14px auto 30px;max-width:520px;color:#9fb0c4}
+.cta-band .actions{justify-content:center}
+.cta-band .btn-primary{background:#fff;color:var(--ink)!important}.cta-band .btn-primary:hover{background:var(--orange)}
+.cta-band .btn-secondary{border-color:#fff;color:#fff}.cta-band .btn-secondary:hover{border-color:var(--orange);color:var(--orange)}
+@media(max-width:900px){.page-head{padding:120px 0 50px}}
